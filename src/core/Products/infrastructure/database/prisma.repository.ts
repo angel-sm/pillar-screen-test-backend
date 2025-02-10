@@ -32,7 +32,7 @@ export class PrismaRepository extends ProductRepository {
       const total = await this.prisma.products.count();
 
       return {
-        products: products.map((product) => new Product(product)),
+        products: products.map((product: PrimitiveProduct) => new Product(product)),
         total,
       };
     } catch (error) {
